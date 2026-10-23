@@ -1,0 +1,12 @@
+LetShare
+Copyright (c) 2026 LetShare contributors
+
+This product includes software developed by third parties:
+
+- windows, windows-future — MIT OR Apache-2.0
+- thiserror, tracing, tracing-subscriber — MIT OR Apache-2.0
+- unicode-ident (via syn/proc-macro2) — MIT OR Apache-2.0 OR Unicode-3.0
+
+The `civil_from_days` date algorithm used in `letsshare-watchdog.rs` follows
+Howard Hinnant's public description of chrono-compatible low-level date
+algorithms. No code was copied verbatim.

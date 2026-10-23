@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LetShare — banner</title>
+<style>
+  :root {
+    --cyan: #22d3ee;
+    --blue: #60a5fa;
+    --violet: #a78bfa;
+    --ink: #e2e8f0;
+    --muted: #94a3b8;
+    --dim: #5b6b85;
+    --line: #1e3a5f;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: #05070d;
+    overflow: hidden;
+    font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+  }
+
+  /* Fixed 1280x320 canvas, scaled to fit the viewport. */
+  .stage {
+    position: relative;
+    width: 1280px;
+    height: 320px;
+    transform: scale(var(--s, 1));
+    transform-origin: center center;
+    border-radius: 18px;
+    overflow: hidden;
+    background:
+      radial-gradient(680px 300px at 84% -10%, rgba(139, 92, 246, 0.20), transparent 65%),
+      radial-gradient(600px 320px at 6% 110%, rgba(34, 211, 238, 0.16), transparent 65%),
+      linear-gradient(135deg, #060a15 0%, #0a1122 55%, #070c18 100%);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
+  .stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 85%);
+  }
+
+  #fx {
+    position: absolute;
+    inset: 0;
+    width: 1280px;
+    height: 320px;
+    pointer-events: none;
+  }
+
+  .copy {
+    position: absolute;
+    left: 72px;
+    top: 66px;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4.5px;
+    color: var(--cyan);
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 78px;
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -2px;
+    background: linear-gradient(90deg, #ffffff 0%, #e2e8f0 65%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tag {
+    margin: 18px 0 0;
+    font-size: 23px;
+    color: var(--muted);
+  }
+
+  .sub {
+    margin: 10px 0 0;
+    font-size: 15px;
+    color: var(--dim);
+  }
+
+  .chips {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .chips span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #7dd3fc;
+    background: #0f1a30;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+
+  /* ---------- illustration ---------- */
+
+  .art {
+    position: absolute;
+    right: 40px;
+    top: 56px;
+    width: 360px;
+    height: 210px;
+    z-index: 2;
+    will-change: transform;
+  }
+
+  .laptop { position: absolute; left: 0; top: 30px; width: 176px; }
+
+  .laptop .lid {
+    height: 106px;
+    border: 2px solid #2b4a6f;
+    border-radius: 7px;
+    background: #0b1527;
+    padding: 10px;
+  }
+
+  .laptop .screen {
+    height: 100%;
+    border-radius: 3px;
+    background: #081120;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .spark {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .laptop .base {
+    height: 14px;
+    margin: -2px -24px 0;
+    background: #101d33;
+    border: 2px solid #2b4a6f;
+    border-radius: 0 0 8px 8px;
+    clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+  }
+
+  .waves {
+    position: absolute;
+    left: 178px;
+    top: 52px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .waves i {
+    position: absolute;
+    inset: 0;
+    border: 3px solid transparent;
+    border-right-color: var(--cyan);
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .waves i:nth-child(2) { inset: 18px; animation-delay: 0.35s; border-right-color: var(--blue); }
+  .waves i:nth-child(3) { inset: 36px; animation-delay: 0.7s; border-right-color: var(--violet); }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.12; transform: scale(0.97); }
+    50%      { opacity: 0.95; transform: scale(1.03); }
+  }
+
+  .phone {
+    position: absolute;
+    right: 0;
+    top: 56px;
+    width: 62px;
+    height: 112px;
+    border: 2px solid #2b4a6f;
+    border-radius: 11px;
+    background: #0b1527;
+    padding: 8px 7px;
+  }
+
+  .phone .screen {
+    height: 100%;
+    border-radius: 4px;
+    background: #081120;
+    display: grid;
+    place-items: center;
+  }
+
+  .phone .notch {
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    width: 16px;
+    height: 3px;
+    border-radius: 2px;
+    background: #2b4a6f;
+    transform: translateX(-50%);
+  }
+
+  .wifi {
+    position: relative;
+    width: 34px;
+    height: 24px;
+  }
+
+  .wifi i {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    border: 2.4px solid transparent;
+    border-top-color: var(--cyan);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: wifi 2s ease-in-out infinite;
+  }
+
+  .wifi i:nth-child(2) { width: 20px; height: 20px; animation-delay: 0.15s; }
+  .wifi i:nth-child(3) {
+    width: 7px; height: 7px; border: 0; background: var(--cyan); border-radius: 50%;
+    animation: none; bottom: 0;
+  }
+
+  @keyframes wifi {
+    0%, 100% { opacity: 0.35; }
+    50%      { opacity: 1; }
+  }
+
+  .accent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .waves i, .wifi i { animation: none; opacity: 0.8; }
+  }
+</style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <canvas id="fx" width="1280" height="320"></canvas>
+
+    <div class="copy">
+      <div class="eyebrow">WINDOWS · RUST · NO ICS</div>
+      <h1>LetShare</h1>
+      <p class="tag">Share your laptop's Wi-Fi with your phone.</p>
+      <p class="sub">Supervised Wi-Fi Direct AP · DHCP that sends DNS · kernel NAT</p>
+      <div class="chips"><span>Rust</span><span>Windows 11</span><span>elevated task</span></div>
+    </div>
+
+    <div class="art" id="art">
+      <div class="laptop">
+        <div class="lid">
+          <div class="screen">
+            <svg class="spark" viewBox="0 0 152 82" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,62 18,38 34,52 52,24 70,44 88,18 108,40 128,22 152,34"
+                        fill="none" stroke="#22d3ee" stroke-opacity="0.55" stroke-width="2" />
+              <circle cx="52" cy="24" r="2.5" fill="#22d3ee">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite" />
+              </circle>
+            </svg>
+          </div>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <div class="waves"><i></i><i></i><i></i></div>
+
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="wifi"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accent"></div>
+  </div>
+
+<script>
+(() => {
+  const stage = document.getElementById('stage');
+  const art = document.getElementById('art');
+  const canvas = document.getElementById('fx');
+  const ctx = canvas.getContext('2d');
+
+  // Scale the fixed-size stage to the viewport without reflowing the artwork.
+  const fit = () => {
+    const s = Math.min(window.innerWidth / 1320, window.innerHeight / 360, 1);
+    document.documentElement.style.setProperty('--s', s.toFixed(4));
+  };
+  fit();
+  addEventListener('resize', fit);
+
+  // Packets ride a quadratic curve from the laptop's right edge to the phone.
+  const P0 = { x: 1058, y: 166 };
+  const P1 = { x: 1118, y: 138 };
+  const P2 = { x: 1180, y: 168 };
+
+  const at = (t) => {
+    const u = 1 - t;
+    return {
+      x: u * u * P0.x + 2 * u * t * P1.x + t * t * P2.x,
+      y: u * u * P0.y + 2 * u * t * P1.y + t * t * P2.y,
+    };
+  };
+
+  const palette = ['#67e8f9', '#60a5fa', '#a78bfa'];
+  const packets = Array.from({ length: 14 }, (_, i) => ({
+    t: i / 14,
+    speed: 0.0016 + Math.random() * 0.0022,
+    r: 1.6 + Math.random() * 2.4,
+    color: palette[i % palette.length],
+  }));
+
+  let frame = 0;
+  const draw = () => {
+    frame++;
+    ctx.clearRect(0, 0, 1280, 320);
+
+    // Faint guide curve.
+    ctx.beginPath();
+    ctx.moveTo(P0.x, P0.y);
+    ctx.quadraticCurveTo(P1.x, P1.y, P2.x, P2.y);
+    ctx.strokeStyle = 'rgba(96, 165, 250, 0.10)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.globalCompositeOperation = 'lighter';
+    for (const p of packets) {
+      p.t += p.speed;
+      if (p.t > 1) p.t -= 1;
+
+      const pos = at(p.t);
+      const fade = Math.sin(Math.PI * p.t); // fade in and out at the ends
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = 0.15 + 0.75 * fade;
+      ctx.fill();
+
+      // Short trail.
+      const back = at(Math.max(0, p.t - 0.03));
+      ctx.beginPath();
+      ctx.moveTo(back.x, back.y);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.strokeStyle = p.color;
+      ctx.globalAlpha = 0.25 * fade;
+      ctx.lineWidth = p.r * 1.4;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = 'source-over';
+
+    requestAnimationFrame(draw);
+  };
+  requestAnimationFrame(draw);
+
+  // Gentle parallax on the illustration only; the text stays put.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    stage.addEventListener('pointermove', (e) => {
+      const r = stage.getBoundingClientRect();
+      const dx = (e.clientX - r.left) / r.width - 0.5;
+      const dy = (e.clientY - r.top) / r.height - 0.5;
+      art.style.transform = `translate(${dx * 10}px, ${dy * 6}px)`;
+    });
+    stage.addEventListener('pointerleave', () => {
+      art.style.transform = 'translate(0, 0)';
+    });
+  }
+})();
+</script>
+</body>
+</html>

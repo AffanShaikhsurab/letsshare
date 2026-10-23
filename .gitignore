@@ -1,0 +1,22 @@
+# Build output
+/target
+**/*.rs.bk
+*.pdb
+
+# Local state and logs
+*.log
+*.csv
+soak-*.csv
+.env
+.env.*
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.user
+*.swp
+
+# Internal notes, not part of the published project
+docs/open-source-review.md

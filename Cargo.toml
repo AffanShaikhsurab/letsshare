@@ -1,0 +1,39 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/letsshare-core",
+    "crates/letsshare-probe",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "MIT"
+description = "Share a Windows laptop's Wi-Fi with phones, with a supervised DHCP, DNS and NAT stack."
+repository = "https://github.com/AffanShaikhsurab/letsshare"
+readme = "README.md"
+keywords = ["wifi", "hotspot", "tethering", "windows", "dhcp"]
+categories = ["network-programming", "os::windows-apis"]
+
+[workspace.dependencies]
+windows = { version = "0.62", features = [
+    "Foundation",
+    "Foundation_Collections",
+    "Networking_Connectivity",
+    "Networking_NetworkOperators",
+    "Devices_WiFiDirect",
+    "Devices_WiFi",
+    "Security_Credentials",
+] }
+windows-future = "0.3"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt"] }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+strip = true
+panic = "abort"
+codegen-units = 1

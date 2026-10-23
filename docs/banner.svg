@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="LetShare - share your laptop's Wi-Fi with your phone">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#060a15"/>
+      <stop offset="0.55" stop-color="#0a1122"/>
+      <stop offset="1" stop-color="#070c18"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.7" stop-color="#e2e8f0"/>
+      <stop offset="1" stop-color="#a5b4fc"/>
+    </linearGradient>
+    <radialGradient id="glowCyan" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowViolet" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="320" fill="url(#bg)"/>
+  <rect width="1280" height="320" fill="url(#grid)"/>
+  <circle cx="1080" cy="60" r="230" fill="url(#glowViolet)"/>
+  <circle cx="140" cy="300" r="210" fill="url(#glowCyan)"/>
+
+  <!-- wordmark -->
+  <text x="72" y="92" fill="#22d3ee" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" letter-spacing="4.5">WINDOWS · RUST · NO ICS</text>
+  <text x="68" y="172" fill="url(#title)" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif" font-size="78" font-weight="700" letter-spacing="-1.5">LetShare</text>
+  <text x="72" y="214" fill="#94a3b8" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif" font-size="23" font-weight="400">Share your laptop's Wi-Fi with your phone.</text>
+  <text x="72" y="248" fill="#5b6b85" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400">Supervised Wi-Fi Direct AP · DHCP that sends DNS · kernel NAT</text>
+
+  <!-- chips -->
+  <g font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif" font-size="12" font-weight="600">
+    <rect x="72" y="272" width="86" height="24" rx="12" fill="#0f1a30" stroke="#1e3a5f"/>
+    <text x="115" y="288" fill="#7dd3fc" text-anchor="middle">Rust</text>
+    <rect x="168" y="272" width="118" height="24" rx="12" fill="#0f1a30" stroke="#1e3a5f"/>
+    <text x="227" y="288" fill="#7dd3fc" text-anchor="middle">Windows 11</text>
+    <rect x="296" y="272" width="164" height="24" rx="12" fill="#0f1a30" stroke="#1e3a5f"/>
+    <text x="378" y="288" fill="#7dd3fc" text-anchor="middle">elevated task</text>
+  </g>
+
+  <!-- illustration: laptop -> phone -->
+  <g>
+    <!-- laptop screen -->
+    <rect x="806" y="86" width="176" height="106" rx="7" fill="#0b1527" stroke="#2b4a6f" stroke-width="2"/>
+    <rect x="818" y="98" width="152" height="82" rx="3" fill="#081120"/>
+    <path d="M818 160 L840 128 L858 146 L878 116 L900 140 L922 112 L946 138 L970 118" fill="none" stroke="#22d3ee" stroke-opacity="0.55" stroke-width="2"/>
+    <circle cx="884" cy="160" r="2.5" fill="#22d3ee"/>
+    <!-- base -->
+    <path d="M786 192 H1002 L978 206 H810 Z" fill="#101d33" stroke="#2b4a6f" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- signal arcs -->
+    <g fill="none" stroke="url(#accent)" stroke-width="3" stroke-linecap="round">
+      <path d="M1016 132 Q1052 160 1016 188">
+        <animate attributeName="opacity" values="0.18;0.95;0.18" dur="2.4s" begin="0s" repeatCount="indefinite"/>
+      </path>
+      <path d="M1016 112 Q1070 160 1016 208">
+        <animate attributeName="opacity" values="0.18;0.95;0.18" dur="2.4s" begin="0.35s" repeatCount="indefinite"/>
+      </path>
+      <path d="M1016 92 Q1088 160 1016 228">
+        <animate attributeName="opacity" values="0.18;0.95;0.18" dur="2.4s" begin="0.7s" repeatCount="indefinite"/>
+      </path>
+    </g>
+
+    <!-- packets -->
+    <circle r="4" fill="#67e8f9">
+      <animateMotion dur="2.8s" repeatCount="indefinite" path="M1018 160 Q1072 138 1128 166"/>
+      <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#a78bfa">
+      <animateMotion dur="2.8s" begin="0.9s" repeatCount="indefinite" path="M1018 160 Q1072 182 1128 154"/>
+      <animate attributeName="opacity" values="0;1;0" dur="2.8s" begin="0.9s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- phone -->
+    <rect x="1128" y="112" width="62" height="112" rx="11" fill="#0b1527" stroke="#2b4a6f" stroke-width="2"/>
+    <rect x="1136" y="124" width="46" height="84" rx="4" fill="#081120"/>
+    <rect x="1155" y="116" width="8" height="3" rx="1.5" fill="#2b4a6f"/>
+    <circle cx="1159" cy="215" r="2.5" fill="#22d3ee"/>
+    <!-- wifi glyph on the phone -->
+    <g fill="none" stroke="#22d3ee" stroke-width="2.4" stroke-linecap="round">
+      <path d="M1146 168 Q1159 156 1172 168">
+        <animate attributeName="opacity" values="0.35;1;0.35" dur="2s" repeatCount="indefinite"/>
+      </path>
+      <path d="M1151 176 Q1159 169 1167 176">
+        <animate attributeName="opacity" values="1;0.35;1" dur="2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <circle cx="1159" cy="183" r="2.6" fill="#22d3ee"/>
+  </g>
+
+  <!-- bottom accent -->
+  <rect x="0" y="316" width="1280" height="4" fill="url(#accent)"/>
+</svg>
